@@ -29,7 +29,6 @@ Endpoints accept and return JSON data, and Zod schema validation is used to ensu
 - **ORM:** Prisma
 - **Auth:** JWT
 - **Validation:** Zod
-- **Logging:** Fastify Logger
 
 ---
 
