@@ -42,14 +42,15 @@ cd expense-tracker-api
 
 2. Install dependencies:
 ```bash
-npm install
+npm install fastify @fastify/cors @fastify/jwt @fastify/static @prisma/client bcrypt dotenv zod
+npm install --save-dev prisma
 ```
 
 3. Set environment variables in `.env` file:
 ```
 PORT=3000
 JWT_SECRET=your_secret_here
-DATABASE_URL=postgresql://USER:PASSWORD@HOST:PORT/DATABASE
+DATABASE_URL=postgresql://postgres:postgres@db:5432/expenses
 ```
 
 4. Setup database:
@@ -57,12 +58,7 @@ DATABASE_URL=postgresql://USER:PASSWORD@HOST:PORT/DATABASE
 npx prisma migrate dev --name init
 ```
 
-5. Change public/index.html line-507 link.:
-```
-const API_BASE_URL = 'http://localhost:3000';
-```
-
-6. Run the server:
+5. Run the server:
 ```bash
 npm run dev
 ```
@@ -98,4 +94,4 @@ npm run dev
 
 ## License
 
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details. 

@@ -1,0 +1,32 @@
+version: '3'
+services:
+  app:
+    build: .
+    container_name: expense-app
+    environment:
+      - DATABASE_URL=postgresql://postgres:postgres@db:5432/expenses
+      - JWT_SECRET=your_jwt_secret_here
+      - NODE_ENV=development
+      - PORT=3000
+    ports:
+      - "3000:3000"
+    depends_on:
+      - db
+    volumes:
+      - .:/app
+    command: sh -c "npx prisma migrate deploy && node src/server.js"
+
+  db:
+    image: postgres:16-alpine
+    container_name: postgres-db
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_DB: expenses
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres-data:/var/lib/postgresql/data
+
+volumes:
+  postgres-data:
