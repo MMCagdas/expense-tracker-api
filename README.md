@@ -13,7 +13,7 @@ This is a **backend-only Expense Tracker REST API** project built using:
 
 ## About The Project
 
-![Screenshot](public/screenshot.png)
+![Expense Tracker Screenshot](https://github.com/MMCagdas/expense-tracker-api/raw/main/public/expense-app.png)
 
 
 This project is a backend REST API that allows users to register, login and manage their expenses securely. It uses JWT authentication to protect routes and Prisma ORM to interact with a PostgreSQL database.
