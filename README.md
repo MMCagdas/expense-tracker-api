@@ -57,7 +57,12 @@ DATABASE_URL=postgresql://USER:PASSWORD@HOST:PORT/DATABASE
 npx prisma migrate dev --name init
 ```
 
-5. Run the server:
+5. Change public/index.html line-507 link.:
+```
+const API_BASE_URL = 'http://localhost:3000';
+```
+
+6. Run the server:
 ```bash
 npm run dev
 ```
