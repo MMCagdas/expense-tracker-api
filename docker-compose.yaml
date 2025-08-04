@@ -2,7 +2,7 @@ version: '3'
 services:
   app:
     build: .
-    container_name: expense-app-retry
+    container_name: expense-app
     environment:
       - DATABASE_URL=postgresql://postgres:postgres@db:5432/expenses
       - JWT_SECRET=your_jwt_secret_here
