@@ -6,7 +6,7 @@ export async function register(request, reply) {
         console.info(`[AUTH][CONTROLLER][REGISTER]: SENDING DATA TO SERVICE!`);
         const userWithoutPassword = await registerService(email, password);
         console.info(`[AUTH][CONTROLLER][REGISTER] DATA ARRIVED FROM SERVICE!`);
-        reply.code(201).send(userWithoutPassword);
+        reply.code(201).send({ message: "User registered", user: userWithoutPassword });
     } catch (err) {
         reply.code(400).send({ error: err.message });
     }
@@ -24,7 +24,7 @@ export async function login(request, reply) {
             email: data.email
         });
         console.info(`[AUTH][CONTROLLER][LOGIN]: TOKEN CREATED!`);
-        reply.code(200).send(token);
+        reply.code(200).send({ token });
     } catch (err) {
         reply.code(400).send({ error: err.message });
     }
