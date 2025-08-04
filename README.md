@@ -40,7 +40,7 @@ git clone https://github.com/MMCagdas/expense-tracker-api.git
 cd expense-tracker-api
 ```
 
-2. Install dependencies:
+2. (NO DOCKER) Install dependencies:
 ```bash
 npm install fastify @fastify/cors @fastify/jwt @fastify/static @prisma/client bcrypt dotenv zod
 npm install --save-dev prisma
@@ -53,14 +53,24 @@ JWT_SECRET=your_secret_here
 DATABASE_URL=postgresql://postgres:postgres@db:5432/expenses
 ```
 
-4. Setup database:
+4. (NO DOCKER) Setup database:
 ```bash
 npx prisma migrate dev --name init
 ```
 
-5. Run the server:
+5. Run the docker:
 ```bash
-npm run dev
+docker-compose up --build
+```
+
+6. In another terminal:
+```
+docker exec -it expense-app npx prisma migrate dev --name init
+```
+
+7. 
+```
+http://localhost:3000
 ```
 
 ---
